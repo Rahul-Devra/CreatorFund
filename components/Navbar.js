@@ -1,11 +1,11 @@
 "use client";
 import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { findCreator } from "@/app/actions/useractions";
 import { deleteProfile } from "@/app/actions/useractions";
+import { MdHome } from "react-icons/md";
 
 const Navbar = () => {
   const [showdropdown, setShowdropdown] = useState(false);
@@ -28,7 +28,7 @@ const Navbar = () => {
       let isDeleted = await deleteProfile(session.user.email);
 
       if (isDeleted) {
-        const signOutResponse = await signOut({ redirect: false });
+        const signOutResponse = await signOut();
 
         if (signOutResponse.error) {
           alert("Error signing out. Please try again.");
@@ -59,12 +59,16 @@ const Navbar = () => {
 
   return (
     <nav className="bg-gray-900 text-white flex flex-col justify-between items-center px-4 md:h-12 md:flex-row">
-      <Link
-        className="logo font-bold text-lg flex justify-center items-center gap-1"
+       <Link
+        className="logo font-bold text-2xl flex justify-center items-center gap-1"
         href={"/"}
       >
-        <Image src="/logo.gif" alt="" height={44} width={44} unoptimized />
-        <span className="text-2xl md:text-base my-3 md:my-0">CreatorFund</span>
+        <span className="text-3xl">
+          <MdHome />
+        </span>
+        <span className="my-3 md:my-0">
+          CreatorFund
+        </span>
       </Link>
       <div className="md:flex md:flex-row gap-4 items-center">
         <form className="max-w-md mx-auto" onSubmit={handleClick}>
