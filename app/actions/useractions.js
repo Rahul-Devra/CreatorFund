@@ -57,7 +57,7 @@ export const fetchdetail = async (username) => {
   await connectDB();
   try {
     let project = await Project.findOne({ username: username });
-    //let details =
+    
     return JSON.parse(JSON.stringify(project));
   } catch (error) {
     console.error(error);
