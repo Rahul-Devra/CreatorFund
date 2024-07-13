@@ -7,7 +7,7 @@ export default function Home() {
       
         <div className="flex flex-col justify-center items-center text-white h-[44vh] px-5 text-xs md:px-0 md:text-base">
           <div className="flex gap gap-2 justify-center items-center font-bold md:text-5xl pb-2 md:pb-5 text-3xl">
-            CreatorFund
+            CrowdLaunch
             <span>
               <Image src="/logo.gif" alt="" height={88} width={88} unoptimized />
             </span>

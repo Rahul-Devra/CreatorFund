@@ -8,7 +8,7 @@ import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "CreatorFund - Fund your projects now!!!",
+  title: "CrowdLaunch - Fund your projects now!!!",
   description: "A crowfunding platform for creators",
 };
 

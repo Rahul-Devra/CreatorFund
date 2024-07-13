@@ -26,17 +26,17 @@ const UserPage = ({ username }) => {
         let u = await fetchuser(username);
         setCurrentUser(u);
         let projectDetail = await fetchdetail(username);
-        console.log("project", projectDetail);
+        
         if (projectDetail) {
           setform(projectDetail);
           setIsEditable(projectDetail.isEditable);
         } else {
-          console.log("No user detail found");
+          
         }
         let dbPayments = await fetchpayments(username);
         setPayments(dbPayments);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        
       }
     };
 
@@ -55,7 +55,7 @@ const UserPage = ({ username }) => {
     );
     if (cnf) {
       
-      console.log("Saving");
+      
       try {
         const projectData = {
           ...form,
@@ -64,7 +64,7 @@ const UserPage = ({ username }) => {
           isEditable:true
         };
         const res = await projectSave(projectData);
-        console.log("Response from projectSave:", res);
+        
 
         if (res == true) {
           toast("Project details saved successfully!", {
@@ -82,7 +82,7 @@ const UserPage = ({ username }) => {
           //setEdit(true);
           return true;
         } else {
-          console.log("Unable to save: Enter Project details");
+          
           toast.error("Unable to save: Enter Project details", {
             // ... toast configuration ...
             position: "top-right",
@@ -97,7 +97,7 @@ const UserPage = ({ username }) => {
           return false;
         }
       } catch (error) {
-        console.error("Error in handleSave:", error);
+        
 
         return false;
       }
@@ -122,7 +122,7 @@ const UserPage = ({ username }) => {
 
       return true;
     } else {
-      console.log("Unable to edit details: Please try again later");
+      
       toast.error("Unable to edit details: Please try again later", {
         // ... toast configuration ...
         position: "top-right",

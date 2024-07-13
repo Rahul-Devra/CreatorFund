@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="px-4 text-center">
               <h3 className="text-sm font-semibold mb-1">Contact Us</h3>
               
-              <p className="text-xs">Email: contact@CreatorFund.com</p>
+              <p className="text-xs">Email: contact@CrowdLaunch.com</p>
             </div>
             <div className="px-4 text-center">
               <h3 className="text-sm font-semibold mb-1">Stay Connected</h3>

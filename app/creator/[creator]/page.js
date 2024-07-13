@@ -20,6 +20,6 @@ export default Creator;
 
 export async function generateMetadata({params}) {
   return {
-    title : `${params.creator} - CreatorFund!!!`
+    title : `${params.creator} - CrowdLaunch!!!`
   }
 }

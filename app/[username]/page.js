@@ -27,6 +27,6 @@ export default Username;
 
 export async function generateMetadata({params}) {
   return {
-    title : `Your Page - ${params.username} - CreatorFund!!!`
+    title : `Your Page - ${params.username} - CrowdLaunch!!!`
   }
 }

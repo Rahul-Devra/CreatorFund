@@ -3,14 +3,14 @@ import React from "react";
 const About = () => {
   return (
     <div className="container mx-auto p-8">
-      <h1 className="text-4xl font-bold mb-6 text-blue-400">About CreatorFund</h1>
+      <h1 className="text-4xl font-bold mb-6 text-blue-400">About CrowdLaunch</h1>
 
       <section className="mb-8">
         <p className="mb-4">
-          Welcome to CreatorFund, a platform dedicated to supporting creators
+          Welcome to CrowdLaunch, a platform dedicated to supporting creators
           and innovators by enabling seamless fundraising and donations. Whether
           you&apos;re an artist, writer, musician, developer, or any other type of
-          creator, CreatorFund provides the tools you need to connect with your
+          creator, CrowdLaunch provides the tools you need to connect with your
           audience and receive the support you deserve.
         </p>
       </section>
@@ -18,7 +18,7 @@ const About = () => {
       <section className="mb-8">
         <h2 className="text-2xl font-bold mb-4 text-blue-400">Our Mission</h2>
         <p>
-          At CreatorFund, our mission is to empower creators by providing a
+          At CrowdLaunch, our mission is to empower creators by providing a
           user-friendly platform for monetizing their talents and projects. We
           believe that creativity should be rewarded, and our goal is to make it
           easy for supporters to fund the creators they love.
@@ -49,7 +49,7 @@ const About = () => {
                   Integrate your payment account securely through our platform.
                 </li>
                 <li>
-                  CreatorFund supports various payment methods to ensure your
+                  CrowdLaunch supports various payment methods to ensure your
                   supporters can contribute easily.
                 </li>
               </ul>
@@ -90,7 +90,7 @@ const About = () => {
       </section>
 
       <section className="mb-8">
-        <h2 className="text-2xl font-bold mb-4 text-blue-400">Why CreatorFund?</h2>
+        <h2 className="text-2xl font-bold mb-4 text-blue-400">Why CrowdLaunch?</h2>
         <ul className="list-disc ml-6">
           <li className="mb-2">
             <strong className="text-violet-700">Secure and Reliable:</strong> We prioritize the security of
@@ -104,7 +104,7 @@ const About = () => {
             profiles, and make donations.
           </li>
           <li className="mb-2">
-            <strong className="text-violet-700">Community Focused:</strong> CreatorFund is built with a
+            <strong className="text-violet-700">Community Focused:</strong> CrowdLaunch is built with a
             focus on community. We strive to foster a supportive environment
             where creators can connect with their audience and grow their
             projects.
@@ -120,7 +120,7 @@ const About = () => {
       <section className="mb-8">
         <h2 className="text-2xl font-bold mb-4 text-blue-400">Join Our Community</h2>
         <p>
-          CreatorFund is more than just a fundraising platform; it&apos;s a community
+          CrowdLaunch is more than just a fundraising platform; it&apos;s a community
           of passionate creators and generous supporters. Join us today and be a
           part of a movement that celebrates and supports creativity.
         </p>
@@ -144,7 +144,7 @@ const About = () => {
           for more information.
         </p>
         <p>
-          Thank you for choosing CreatorFund. Together, we can make great things
+          Thank you for choosing CrowdLaunch. Together, we can make great things
           happen!
         </p>
       </section>
@@ -155,5 +155,5 @@ const About = () => {
 export default About;
 
 export const metadata = {
-  title: "About - CreatorFund!!!",
+  title: "About - CrowdLaunch!!!",
 };

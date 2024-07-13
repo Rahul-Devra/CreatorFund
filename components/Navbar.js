@@ -67,7 +67,7 @@ const Navbar = () => {
           <MdHome />
         </span>
         <span className="my-3 md:my-0">
-          CreatorFund
+          CrowdLaunch
         </span>
       </Link>
       <div className="md:flex md:flex-row gap-4 items-center">

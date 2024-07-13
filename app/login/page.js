@@ -10,7 +10,7 @@ const Login = () => {
   const router = useRouter();
 
   useEffect(() => {
-    document.title = "Login - CreatorFund";
+    document.title = "Login - CrowdLaunch";
     if (session) {
       router.push("/dashboard");
     }

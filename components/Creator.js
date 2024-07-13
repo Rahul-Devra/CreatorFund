@@ -96,7 +96,7 @@ const Creatorpage = ({ username, email }) => {
         key: process.env.NEXT_PUBLIC_KEY_ID,
         amount: amount * 100,
         currency: "INR",
-        name: "CreatorFund",
+        name: "CrowdLaunch",
         description: "Test Transaction",
         img: "/logo.gif",
         order_id: orderId,

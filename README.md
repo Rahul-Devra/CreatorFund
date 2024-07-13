@@ -1,6 +1,6 @@
-# CreatorFund
+# CrowdLaunch
 
-CreatorFund is  a responsive crowdfunding platform using Next.js and TailwindCSS, enabling creators to create profiles for fans to discover and support financially.
+CrowdLaunch is  a responsive crowdfunding platform using Next.js and TailwindCSS, enabling creators to create profiles for fans to discover and support financially.
 
 ## Features
 
