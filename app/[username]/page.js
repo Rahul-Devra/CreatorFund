@@ -1,4 +1,4 @@
-import PaymentPage from "@/components/paymentpage";
+import UserPage from "@/components/UserPage";
 import React from "react";
 import connectDB from "../db/connectDB";
 import User from "../models/User";
@@ -18,7 +18,7 @@ const Username = async ({ params }) => {
   
   return (
     <>
-      <PaymentPage username={params.username} />
+      <UserPage username={params.username} />
     </>
   );
 };

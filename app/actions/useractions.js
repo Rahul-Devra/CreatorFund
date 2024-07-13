@@ -3,6 +3,7 @@ import Razorpay from "razorpay";
 import Payment from "../models/Payment";
 import connectDB from "../db/connectDB";
 import User from "../models/User";
+import Project from "../models/Project";
 
 export const initiate = async (amount, to_username, paymentform) => {
   await connectDB();
@@ -49,6 +50,46 @@ export const fetchuser = async (username) => {
     return user;
   } catch (error) {
     console.error(error);
+  }
+};
+
+export const fetchdetail = async (username) => {
+  await connectDB();
+  try {
+    let project = await Project.findOne({ username: username });
+    //let details =
+    return JSON.parse(JSON.stringify(project));
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const projectSave = async (data) => {
+  await connectDB();
+
+  try {
+    const newProject = await Project.create(data);
+
+    return true;
+  } catch (error) {
+    return {
+      status: "ERROR",
+      message: error.message || "Server error, please try again",
+    };
+  }
+};
+
+export const projectUpdate = async (username, data) => {
+  try {
+    await connectDB();
+    let res = await Project.updateOne({ username: username }, data);
+    return true;
+  } catch (error) {
+    console.error("Error in projectSave:", error);
+    return {
+      status: "ERROR",
+      message: error.message || "Server error, please try again",
+    };
   }
 };
 
