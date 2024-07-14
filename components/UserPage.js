@@ -2,7 +2,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Script from "next/script";
-import { fetchpayments, initiate, fetchuser, projectUpdate } from "@/app/actions/useractions";
+import {
+  fetchpayments,
+  initiate,
+  fetchuser,
+  projectUpdate,
+} from "@/app/actions/useractions";
 import { useSession } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
@@ -26,18 +31,15 @@ const UserPage = ({ username }) => {
         let u = await fetchuser(username);
         setCurrentUser(u);
         let projectDetail = await fetchdetail(username);
-        
+
         if (projectDetail) {
           setform(projectDetail);
           setIsEditable(projectDetail.isEditable);
         } else {
-          
         }
         let dbPayments = await fetchpayments(username);
         setPayments(dbPayments);
-      } catch (error) {
-        
-      }
+      } catch (error) {}
     };
 
     getData();
@@ -50,21 +52,18 @@ const UserPage = ({ username }) => {
   const handleSave = async () => {
     let cnf = window.confirm(
       "Important: After saving, most project details cannot be edited.\n" +
-      "You can only provide updates using the 'Project Update' field.\n" +
-      "Are you sure you want to save?"
+        "You can only provide updates using the 'Project Update' field.\n" +
+        "Are you sure you want to save?"
     );
     if (cnf) {
-      
-      
       try {
         const projectData = {
           ...form,
           email: session.user.email,
           username: username,
-          isEditable:true
+          isEditable: true,
         };
         const res = await projectSave(projectData);
-        
 
         if (res == true) {
           toast("Project details saved successfully!", {
@@ -82,7 +81,6 @@ const UserPage = ({ username }) => {
           //setEdit(true);
           return true;
         } else {
-          
           toast.error("Unable to save: Enter Project details", {
             // ... toast configuration ...
             position: "top-right",
@@ -97,51 +95,45 @@ const UserPage = ({ username }) => {
           return false;
         }
       } catch (error) {
-        
-
         return false;
       }
     }
   };
 
   const handleEdit = async () => {
-   try {
-    let res = await projectUpdate(username , {...form , isEditable:true});
-    if (res == true) {
-      toast("Project details updated successfully!", {
-        // ... toast configuration ...
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+    try {
+      let res = await projectUpdate(username, { ...form, isEditable: true });
+      if (res == true) {
+        toast("Project details updated successfully!", {
+          // ... toast configuration ...
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
 
-      return true;
-    } else {
-      
-      toast.error("Unable to edit details: Please try again later", {
-        // ... toast configuration ...
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-      return false;
-    }
-   } catch (error) {
-    
-   }
-    
-  }
-  
+        return true;
+      } else {
+        toast.error("Unable to edit details: Please try again later", {
+          // ... toast configuration ...
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        return false;
+      }
+    } catch (error) {}
+  };
+
   useEffect(() => {
     if (status === "loading") return;
     if (!session) {
@@ -193,7 +185,7 @@ const UserPage = ({ username }) => {
         </div>
 
         <div className="container bg-slate-900">
-          <div className="h-[450px] flex  w-full  my-5 rounded-lg p-10 ml-6">
+          <div className="h-[550px] flex  w-full  my-5 rounded-lg p-10 ml-6">
             <div className=" w-[33%] mr-10 border-r-4 border-gray-600 part1 pr-10">
               <h2 className="text-2xl font-bold mb-3 text-white">
                 Funding Details
@@ -234,6 +226,31 @@ const UserPage = ({ username }) => {
                   disabled={isEditable}
                 />
               </div>
+              <div>
+                <h3 className="mb-2">Project Link:</h3>
+                <input
+                  className="w-full rounded-full p-3 border border-violet-800 h-10 bg-white text-black"
+                  type="text"
+                  placeholder={
+                    !form.projectLinkmb &&
+                    "No link available. Enter Project Link"
+                  }
+                  name="projectLink"
+                  value={form.projectLink || ""}
+                  onChange={handleChange}
+                />
+                {form.projectLink && (
+                  <a
+                    href={form.projectLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline block mt-2"
+                  >
+                    Visit Project Link
+                  </a>
+                )}
+              </div>
+
               <div>
                 <h3 className="mb-2">Project Update</h3>
                 <textarea
@@ -293,9 +310,9 @@ const UserPage = ({ username }) => {
             <button
               type="button"
               className=" text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xl px-5 py-2.5 text-center mb-2"
-              onClick={isEditable?handleEdit:handleSave}
+              onClick={isEditable ? handleEdit : handleSave}
             >
-              {isEditable?"Update" : "Save"}
+              {isEditable ? "Update" : "Save"}
             </button>
           </div>
         </div>

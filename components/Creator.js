@@ -201,6 +201,27 @@ const Creatorpage = ({ username, email }) => {
                 />
               </div>
               <div>
+                <h3 className="mb-2">Project Link:</h3>
+                <input
+                  className="w-full rounded-full p-3 border border-violet-800 h-10 bg-white text-black"
+                  
+                  value={form.projectLink || "No link available"}
+                  readOnly
+                  
+                />
+                {form.projectLink && (
+                  <a
+                    href={form.projectLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline block mt-2"
+                  >
+                    Visit Project Link
+                  </a>
+                )}
+              </div>
+
+              <div>
                 <h3 className="mb-2 text-white">Project Update:</h3>
                 <textarea
                   className="w-full p-2 border border-violet-800 bg-white text-black resize-none rounded-lg"

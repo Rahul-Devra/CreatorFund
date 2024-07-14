@@ -7,6 +7,7 @@ const ProjectSchema = new Schema({
   projectName: { type: String, required: true },
   fundingAmount: { type: Number, required: true },
   fundingGoal: { type: String, required: true },
+  projectLink: {type:String, required:true},
   projectUpdate: { type: String, required: true },
   projectDescription: { type: String, required: true },
   isEditable: {type:Boolean , default:false}

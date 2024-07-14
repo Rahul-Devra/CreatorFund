@@ -66,9 +66,9 @@ export const fetchdetail = async (username) => {
 
 export const projectSave = async (data) => {
   await connectDB();
-
+  console.log("Saving" , data);
   try {
-    const newProject = await Project.create(data);
+    const newProject = await Project.create({...data , projectLink: data.projectLink || "No link available" , projectUpdate: data.projectUpdate || "No Update"});
 
     return true;
   } catch (error) {
@@ -82,6 +82,7 @@ export const projectSave = async (data) => {
 export const projectUpdate = async (username, data) => {
   try {
     await connectDB();
+    console.log("updating" , data)
     let res = await Project.updateOne({ username: username }, data);
     return true;
   } catch (error) {
